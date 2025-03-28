@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <title>Pincode Infra</title>
+    <link rel="icon" href="/img/PINCODE_FAVICON.jpg" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Pincode Infra" name="description" />
+    <meta content="" name="keywords" />
+    <meta content="" name="author" />
+    <!-- CSS Files
+    ================================================== -->
+    <link
+      href="css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="bootstrap"
+    />
+    <link href="css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="css/swiper.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/coloring.css" rel="stylesheet" type="text/css" />
+    <!-- color scheme -->
+    <link
+      id="colors"
+      href="css/colors/scheme-01.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      .mv-para {
+        padding: 0 2rem 1rem;
+      }
+        /* Overlay */
+        .pop_overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            z-index: 98;
+        }
+
+        /* Popup Form */
+        .popup {
+            background: white;
+            padding: 20px;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transform: scale(0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            position: relative;
+        }
+
+        /* Show Active State */
+        .pop_overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+
+        /* Form Inputs */
+        .popup h2 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .popup p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .popup input, .popup textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .popup textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        /* Send Button */
+        .send-btn {
+            background: #301a1a;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .send-btn i {
+            margin-left: 8px;
+        }
+
+        .send-btn:hover {
+            background: #218838;
+        }
+
+
+    </style>
+  </head>
+
+  <body>
+    
+    <div id="wrapper">
+      <a href="#" id="back-to-top"></a>
+
+      <!-- page preloader begin -->
+      <div id="de-loader"></div>
+      <!-- page preloader close -->
+      <div class="pop_overlay" id="popupOverlay">
+        <div class="popup" id="popupForm">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>Want to know more?</h2>
+            <p>Enquire now</p>
+            <input type="text" placeholder="Your Name">
+            <input type="tel" placeholder="Phone Number">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Your Message"></textarea>
+            <button class="send-btn">Send <i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+      <!-- header begin -->
+      <header class="transparent has-topbar">
+        <div id="topbar">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="d-flex justify-content-between xs-hide">
+                  <div class="header-widget d-flex">
+                    <div class="topbar-widget">
+                      <a href="#"
+                        ><i class="icofont-location-pin"></i>A 37, Block A,
+                        Industrial Area, Sector 62, Noida, Uttar Pradesh
+                        20130</a
+                      >
+                    </div>
+                    <div class="topbar-widget">
+                      <a href="#"><i class="icofont-phone"></i>+929 333 9296</a>
+                    </div>
+                    <div class="topbar-widget">
+                      <a href="#"
+                        ><i class="icofont-envelope"></i>contact@almaris.com</a
+                      >
+                    </div>
+                  </div>
+
+                  <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter fa-lg"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube fa-lg"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="de-flex sm-pt10">
+                <div class="de-flex-col">
+                  <!-- logo begin -->
+                  <div id="logo">
+                    <a href="/">
+                      <img class="logo-main" src="img/LogoWhite.png" alt="" />
+                      <img class="logo-scroll" src="img/LogoWhite.png" alt="" />
+                      <img class="logo-mobile" src="img/LogoWhite.png" alt="" />
+                    </a>
+                  </div>
+                  <!-- logo close -->
+                </div>
+                <div class="de-flex-col header-col-mid">
+                  <ul id="mainmenu">
+                    <li>
+                      <a class="menu-item" href="index.html">Home</a>
+                       </li>
+                    <li>
+                      <a class="menu-item" href="/about.html">About</a>
+                      </li>
+                    <li>
+                      <a class="menu-item" href="#vision">Vision</a>
+                    </li>
+                    <li>
+                      <a class="menu-item" href="#projects">Project</a>
+                     </li>
+                    <li><a class="menu-item" href="#features">Features</a></li>
+                    <li>
+                      <a class="menu-item" href="#contact">Contact</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="de-flex-col">
+                  <div class="menu_side_area">
+                    <button class="open-popup-btn btn-main btn-line">Enquiry</button>
+                    <span id="menu-btn"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- header close -->
+      <!-- content begin -->
+      <div class="no-bottom no-top" id="content">
+        <div id="top"></div>
+
+        <section class="jarallax pt100 bg-dark text-light relative">
+          <div class="overlay op-7"></div>
+          <img src="img/Home_Main_BG.png" class="jarallax-img" alt="" />
+          <div class="container relative z-2">
+            <div class="row g-3 justify-content-center">
+              <div class="spacer-double xs-hide"></div>
+
+              <div class="col-xl-10 col-lg-12 relative">
+                <h1
+                  class="fs-96 fs-sm-10vw mb-0 lh-1 text-uppercase wow fadeInRight"
+                >
+                  Building Landmarks
+                </h1>
+                <div
+                  class="abs w-30 end-0 bottom-0 sm-hide wow fadeInRight"
+                  data-wow-delay=".2s"
+                >
+                  <p>
+                    With every project, we strive to leave a mark on the skyline
+                    and an imprint on people’s lives.
+                  </p>
+                </div>
+              </div>
+              <div class="col-xl-10 col-lg-12 text-end">
+                <h1
+                  class="fs-96 fs-sm-10vw mb-0 lh-1 text-uppercase wow fadeInLeft"
+                  data-wow-delay=".4s"
+                >
+                  Crafting Legacies
+                </h1>
+              </div>
+            </div>
+
+            <div class="spacer-double"></div>
+
+            <div
+              class="row g-3 gx-4 justify-content-center align-items-center relative"
+            >
+              <div class="col-lg-4">
+                <div class="wow fadeInLeft" data-wow-delay="1.2s">
+                  <p>
+                    At PINCODE, we don’t just build structures — we shape
+                    destinations that become symbols of excellence. With every
+                    project, we strive to leave a mark on the skyline and an
+                    imprint on people’s lives. Our legacy begins with Capitol
+                    Avenue — and this is just the beginning.
+                  </p>
+                  <button class="btn-main mt-2">Get Quote Today</button>
+                </div>
+
+                <!-- <div
+                  class="abs z-2 end-10 abs-middle sm-hide text-center p-4 bg-dark wow scaleIn"
+                  data-wow-delay="1.4s"
+                >
+                  <div class="fs-15" data-wow-delay=".2s">
+                    <h3 class="fs-48 lh-1-1 mb-0 id-color">120+</h3>
+                    Rooms Available
+                  </div>
+                </div> -->
+              </div>
+
+              <div class="col-lg-5">
+                <img
+                  src="images/misc/2.webp"
+                  class="w-100 rounded-up-100 wow scaleIn"
+                  data-wow-delay=".8s"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="relative lines-deco">
+          <div class="container">
+            <div class="row g-4">
+              <div class="col-lg-4 sm-hide">
+                <div class="relative wow fadeInUp" data-wow-delay=".3s">
+                  <div class="abs top-0 w-100">
+                    <div class="shape-mask-1 jarallax">
+                      <img src="img/PRLX_1.png" class="jarallax-img" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 text-center">
+                <div class="wow scaleIn">
+                  <div class="subtitle id-color mb-3">About Us</div>
+                  <p class="wow fadeInUp">
+                    PINCODE is an idea born from ambition, shaped by experience,
+                    and driven by vision. We are a new-age real estate
+                    development firm that believes in creating spaces that stand
+                    the test of time — in design, in value, and in experience.
+                    With a keen eye for location, a deep commitment to quality,
+                    and a philosophy of meaningful design, we’re here to change
+                    the way people perceive commercial and lifestyle spaces.
+                  </p>
+
+                  <div class="text-center wow fadeInUp" data-wow-delay=".5s">
+                    <h4 class="fw-bold mb-1">
+                      We focus on excellence <br />
+                      not just in construction, but in thought.
+                    </h4>
+                    <!-- <div class="de-rating-ext fs-18">
+                      <span class="d-stars">
+                        <i class="icofont-star"></i>
+                        <i class="icofont-star"></i>
+                        <i class="icofont-star"></i>
+                        <i class="icofont-star"></i>
+                        <i class="icofont-star"></i>
+                      </span>
+                    </div> -->
+                    <!-- <span class="d-block fs-14 mb-0"
+                      >Based on 25000+ reviews</span
+                    > -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 sm-hide">
+                <div class="relative wow fadeInUp" data-wow-delay=".3s">
+                  <div class="abs top-0 w-100">
+                    <div class="shape-mask-1 jarallax">
+                      <img src="img/PRLX_2.png" class="jarallax-img" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="vision" class="relative lines-deco">
+          <div class="container relative z-2">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="relative" style="background-color: #fff">
+                  <div class="subtitle id-color wow fadeInUp">Our</div>
+                  <h2>Mission</h2>
+                  <p class="mv-para">
+                    To develop intelligent, inspiring spaces that elevate lives,
+                    empower businesses, and deliver enduring value. Our mission
+                    is to create environments where innovation meets
+                    functionality, and each project becomes a catalyst for
+                    growth. We blend cutting-edge technology with sustainable
+                    design, fostering communities and inspiring excellence while
+                    ensuring every space contributes positively to users and
+                    business prosperity for lasting impact every day.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="relative" style="background-color: #fff">
+                  <div class="subtitle id-color wow fadeInUp">Our</div>
+                  <h2>Vision</h2>
+                  <p class="mv-para">
+                    Our vision is to become India’s most trusted name in
+                    landmark developments by consistently delivering exceptional
+                    projects that stand as symbols of innovation, quality, and
+                    integrity. We aspire to create timeless legacies with every
+                    project, cultivating trust and admiration among our
+                    stakeholders while transforming urban landscapes and
+                    enriching communities one visionary development at a time
+                    with passion and unwavering commitment.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="spacer-single"></div>
+        </section>
+
+        <section class="relative lines-deco" id="projects">
+          <div class="container relative z-2">
+            <div class="row g-4">
+              <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="subtitle id-color wow fadeInUp mb-3">Pincode's</div>
+                <h2 class="wow fadeInUp">Projects</h2>
+              </div>
+              <div class="col-md-6">
+                <div class="relative">
+                  <img
+                    src="img/Current_Project.jpg"
+                    class="img-fluid wow fadeInUp"
+                    alt=""
+                  />
+                  <div
+                    class="bg-color text-light p-4 start-10 mx-4 mt-70 wow fadeInDown"
+                    data-wow-delay=""
+                  >
+                    <div class="row g-4 align-items-center">
+                      <a href="/ongoing-project.html"
+                        ><h3 style="text-align: center">Ongoing Project</h3></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="relative">
+                  <img
+                    src="img/Upcoming_Project.jpg"
+                    class="img-fluid wow fadeInUp"
+                    alt=""
+                  />
+                  <div
+                    class="bg-color text-light p-4 start-10 mx-4 mt-70 wow fadeInDown"
+                    data-wow-delay=""
+                  >
+                    <div class="row g-4 align-items-center">
+                      <a href="/upcoming-project.html"
+                        ><h3 style="text-align: center">Upcoming Project</h3></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="spacer-single"></div>
+        </section>
+
+        <section
+          id="features"
+          class="jarallax relative overflow-hidden text-light section-dark pt60 pb60"
+        >
+          <div class="overlay op-5"></div>
+          <img src="img/Home_Main_BG.png" class="jarallax-img" alt="" />
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="subtitle id-color wow fadeInUp mb-3">
+                  Capitol Avenue
+                </div>
+                <h2 class="wow fadeInUp">Features</h2>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-dark text-light no-top no-bottom overflow-hidden">
+          <div class="container-fluid position-relative half-fluid">
+            <div class="container">
+              <div class="row">
+                <!-- Image -->
+                <div class="col-lg-6 position-lg-absolute right-half h-100">
+                  <div
+                    class="image"
+                    data-bgimage="url(img/Prime_Location.jpg) center"
+                  ></div>
+                </div>
+                <!-- Text -->
+                <div class="col-lg-6 py-5 pe-lg-5">
+                  <h3>Prime Location</h3>
+                  <!-- <div class="fs-14 mb-3">
+                    <span class="me-4"> 2 Guests </span>
+                    <span class="me-4"> 30 ft </span>
+                  </div> -->
+                  <p class="pe-lg-5">
+                    Situated in the heart of Noida’s thriving business district,
+                    Capitol Avenue offers unrivaled accessibility to major
+                    transportation hubs, corporate centers, and premium
+                    neighborhoods. Its strategic location enhances connectivity,
+                    supports high footfall, and positions businesses for
+                    sustainable growth and success remarkably.
+                  </p>
+                  <button class="btn-main mt-2 open-popup-btn">Know More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-dark text-light no-top no-bottom overflow-hidden">
+          <div class="container-fluid position-relative half-fluid">
+            <div class="container">
+              <div class="row">
+                <!-- Image -->
+                <div class="col-lg-6 position-lg-absolute left-half h-100">
+                  <div
+                    class="image"
+                    data-bgimage="url(img/Modern_Design.jpg) center"
+                  ></div>
+                </div>
+                <!-- Text -->
+                <div class="col-lg-6 offset-lg-6 py-5 ps-lg-5">
+                  <h3>Modern Design</h3>
+                  <!-- <div class="fs-14 mb-3">
+                    <span class="me-4"> 2 Guests </span>
+                    <span class="me-4"> 30 ft </span>
+                  </div> -->
+                  <p class="pe-lg-5">
+                    Capitol Avenue showcases a modern architectural design that
+                    seamlessly blends functionality with aesthetic appeal. The
+                    thoughtfully planned layout, cutting-edge infrastructure,
+                    and premium finishes create inspiring workspaces and retail
+                    environments, setting new benchmarks for innovation and
+                    contemporary elegance for lasting impact.
+                  </p>
+                  <button class="btn-main mt-2 open-popup-btn">Know More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-dark text-light no-top no-bottom overflow-hidden">
+          <div class="container-fluid position-relative half-fluid">
+            <div class="container">
+              <div class="row">
+                <!-- Image -->
+                <div class="col-lg-6 position-lg-absolute right-half h-100">
+                  <div class="image" data-bgimage="url(img/tce.jpg) center"></div>
+                </div>
+                <!-- Text -->
+                <div class="col-lg-6 py-5 pe-lg-5">
+                  <h3>State-of-the-Art Amenities</h3>
+                  <!-- <div class="fs-14 mb-3">
+                    <span class="me-4"> 2 Guests </span>
+                    <span class="me-4"> 30 ft </span>
+                  </div> -->
+                  <p class="pe-lg-5">
+                    Offering a comprehensive range of state-of-the-art
+                    amenities, Capitol Avenue ensures a superior working and
+                    shopping experience. Facilities include advanced security,
+                    high-speed elevators, luxurious lobbies, and efficient
+                    infrastructure, all designed to promote comfort,
+                    productivity, and a vibrant urban lifestyle with excellence.
+                  </p>
+                  <button class="btn-main mt-2 open-popup-btn">Know More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-dark text-light no-top no-bottom overflow-hidden">
+          <div class="container-fluid position-relative half-fluid">
+            <div class="container">
+              <div class="row">
+                <!-- Image -->
+                <div class="col-lg-6 position-lg-absolute left-half h-100">
+                  <div
+                    class="image"
+                    data-bgimage="url(img/Modern_amenities.jpg) center"
+                  ></div>
+                </div>
+                <!-- Text -->
+                <div class="col-lg-6 offset-lg-6 py-5 ps-lg-5">
+                  <h3>Integrated Commercial Ecosystem</h3>
+                  <!-- <div class="fs-14 mb-3">
+                    <span class="me-4"> 4 Guests </span>
+                    <span class="me-4"> 60 ft </span>
+                  </div> -->
+                  <p class="pe-lg-5">
+                    Capitol Avenue establishes an integrated commercial
+                    ecosystem by uniting office spaces, high-street retail
+                    zones, and recreational areas. This holistic environment
+                    fosters collaboration, drives business synergy, and creates
+                    a dynamic platform for growth, making it an iconic landmark
+                    for visionary enterprises.
+                  </p>
+                  <button class="btn-main mt-2 open-popup-btn">Know More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact"
+          class="relative lines-deco"
+          style="background-size: cover; background-repeat: no-repeat"
+        >
+          <div
+            class="container"
+            style="background-size: cover; background-repeat: no-repeat"
+          >
+            <div
+              class="row g-4 justify-content-center"
+              style="background-size: cover; background-repeat: no-repeat"
+            >
+              <div
+                class="col-lg-7"
+                style="background-size: cover; background-repeat: no-repeat"
+              >
+                <form
+                  name="contactForm"
+                  id="contact_form"
+                  class="position-relative z1000"
+                  method="post"
+                  action="contact.php"
+                >
+                  <div
+                    id="contact_form_wrap"
+                    class="row gx-4"
+                    style="background-size: cover; background-repeat: no-repeat"
+                  >
+                    <div
+                      class="col-lg-12"
+                      style="
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                      "
+                    >
+                      <div
+                        class="text-center"
+                        style="
+                          background-size: cover;
+                          background-repeat: no-repeat;
+                        "
+                      >
+                        <h1 class="mb-4">Want to know more</h1>
+                        <h3 class="mb-4">Leave a Message</h3>
+                      </div>
+                    </div>
+
+                    <div
+                      class="col-lg-6 col-md-6 mb10"
+                      style="
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                      "
+                    >
+                      <div
+                        class="field-set"
+                        style="
+                          background-size: cover;
+                          background-repeat: no-repeat;
+                        "
+                      >
+                        <input
+                          type="text"
+                          name="name"
+                          id="name"
+                          class="form-control"
+                          placeholder="Your Name"
+                          required=""
+                        />
+                      </div>
+
+                      <div
+                        class="field-set"
+                        style="
+                          background-size: cover;
+                          background-repeat: no-repeat;
+                        "
+                      >
+                        <input
+                          type="text"
+                          name="email"
+                          id="email"
+                          class="form-control"
+                          placeholder="Your Email"
+                          required=""
+                        />
+                      </div>
+
+                      <div
+                        class="field-set"
+                        style="
+                          background-size: cover;
+                          background-repeat: no-repeat;
+                        "
+                      >
+                        <input
+                          type="text"
+                          name="phone"
+                          id="phone"
+                          class="form-control"
+                          placeholder="Your Phone"
+                          required=""
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      class="col-lg-6 col-md-6"
+                      style="
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                      "
+                    >
+                      <div
+                        class="field-set mb20"
+                        style="
+                          background-size: cover;
+                          background-repeat: no-repeat;
+                        "
+                      >
+                        <textarea style="resize: none;"
+                          name="message"
+                          id="message"
+                          class="form-control"
+                          placeholder="Your Message"
+                          required=""
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <div
+                      class="col-lg-12"
+                      style="
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                      "
+                    >
+                      <div
+                        class="text-center"
+                        style="
+                          background-size: cover;
+                          background-repeat: no-repeat;
+                        "
+                      >
+                        <input
+                          type="submit"
+                          id="send_message"
+                          value="Send Message"
+                          class="btn-main"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    id="success_message"
+                    class="success"
+                    style="background-size: cover; background-repeat: no-repeat"
+                  >
+                    Your message has been sent successfully. Refresh this page
+                    if you want to send more messages.
+                  </div>
+                  <div
+                    id="error_message"
+                    class="error"
+                    style="background-size: cover; background-repeat: no-repeat"
+                  >
+                    Sorry there was an error sending your form.
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        </div>
+      <!-- content close -->
+
+      <!-- footer begin -->
+      <footer class="text-light section-dark">
+        <div class="container">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-12">
+              <div
+                class="d-lg-flex align-items-center justify-content-between text-center"
+              >
+                <div>
+                  <h3 class="fs-20">Address</h3>
+                  A 37, Block A, Industrial Area, Sector 62 <br />
+                  Noida, Uttar Pradesh 20130
+                </div>
+                <div>
+                  <img src="img/LogoWhite.png" class="w-200px" alt="" /><br />
+                  <div class="social-icons mb-sm-30 mt-4">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="fs-20">Contact Us</h3>
+                  T. +929 333 9296<br />
+                  M. contact@almaris.com
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="subfooter">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                © 2025 Pincode Infra. All Rights Reserved.
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- footer close -->
+    </div>
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          // Check if the URL contains a hash (e.g., #vision)
+          if (window.location.hash) {
+              const targetId = window.location.hash.substring(1); // Remove #
+              const targetElement = document.getElementById(targetId);
+              
+              if (targetElement) {
+                  setTimeout(() => {
+                      targetElement.scrollIntoView({ behavior: "smooth" });
+                  }, 300); // Small delay to ensure the page is loaded
+              }
+          }
+      });
+  </script>
+  <script>
+    // Function to open popup
+    function openPopup() {
+        document.getElementById('popupOverlay').classList.add('active');
+        document.getElementById('popupForm').classList.add('active');
+    }
+
+    // Function to close popup
+    function closePopup() {
+        document.getElementById('popupForm').classList.remove('active');
+        setTimeout(() => {
+            document.getElementById('popupOverlay').classList.remove('active');
+        }, 300); // Matches transition duration
+    }
+
+    // Attach event listeners to all buttons with class 'open-popup-btn'
+    document.querySelectorAll('.open-popup-btn').forEach(button => {
+        button.addEventListener('click', openPopup);
+    });
+
+    // Close when clicking outside the form
+    document.getElementById('popupOverlay').addEventListener('click', function(event) {
+        if (event.target === this) {
+            closePopup();
+        }
+    });
+</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/custom-marquee.js"></script>
+    <script src="js/custom-swiper-2.js"></script>
+  </body>
+</html>

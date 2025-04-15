@@ -344,7 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gsap.fromTo(title, { y: -200 }, { y: 0, duration: 0.5, ease: "power2.out" });
       gsap.fromTo(para, { y: 200 }, { y: 0, duration: 0.5, delay: 0.15, ease: "power2.out" });
       gsap.fromTo(btn, { y: 200 }, { y: 0, duration: 0.5, delay: 0.25, ease: "power2.out" });
-      gsap.fromTo(imgTitle, { scale: 0.8 }, { scale: 1, duration: 0.5, delay: 0.25, ease: "power2.out" });
+      gsap.fromTo(imgTitle, { scale: 0.8 }, { scale: 1, duration: 0.5, delay: 0.5, ease: "power2.out" });
     } else {
       gsap.set(title, { y: -200 });
       gsap.set(para, { y: 200 });
@@ -395,7 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
             gsap.to(title.img, {
               scale: index === currentIndex ? 1 : 0.8,
               duration: 0.5,
-              delay: 0.25,
+              delay: 0.5,
               ease: "power2.out",
               overwrite: true,
             });
@@ -434,7 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
             gsap.to(title.img, {
               scale: index === prevIndex ? 1 : 0.8,
               duration: 0.5,
-              delay: 0.25,
+              delay: 0.5,
               ease: "power2.out",
               overwrite: true,
             });

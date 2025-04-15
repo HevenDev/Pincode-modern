@@ -198,7 +198,7 @@
         background-color: #b4aea7;
         position: relative;
         width: 100%;
-        height: 100vh;
+        height: 100svh;
         overflow: hidden;
         padding: 0;
       }
@@ -241,10 +241,9 @@
       .title {
         position: relative;
         width: max-content;
-        top: 40.5%;
+        top: 44.5%;
         left: 50%;
         transform: translateX(-50%);
-        margin: 1.5em;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         z-index: 2;
         /* text-align: center; */
@@ -252,11 +251,10 @@
       .title p {
         color: #fff;
         width: 50vw;
-        margin: auto;
         font-weight: 300;
       }
       .main_title {
-        top: 45%;
+        top: 50%;
         transform: translateX(-50%) translateY(-50%);
         clip-path: none;
       }
@@ -312,6 +310,26 @@
         }
         .main_title img {
           width: 60%;
+        }
+      }
+      @media (max-width: 480px) {
+        .title h3 {
+          font-size: 28px;
+        }
+        .title{
+          top: 46%;
+        }
+        .title p {
+          width: 85vw;
+        }
+        .main_title{
+          top: 50%;
+        }
+        .banner_btn .btn-main{
+          display: block;
+        }
+        .project_banner{
+          flex-direction: column;
         }
       }
     </style>
@@ -489,7 +507,7 @@
                     >
                       <a href="/about.html">
                         <button
-                          class="open-popup-btn btn-main btn-line"
+                          class="open-popup-btn btn-main "
                           style="border-radius: 5px; border: 1px solid white"
                         >
                           Learn More
@@ -513,27 +531,28 @@
                   </p>
                   <div class="de-flex-col banner_btn">
                     <div
-                      class="menu_side_area"
+                      class="menu_side_area project_banner"
                       style="
                         margin-left: 0;
                         margin-top: 15px;
                         text-align: start;
                         display: flex;
                         justify-content: space-around;
+                        gap: 5px;
                       "
                     >
                       <a href="/ongoing-project.html">
                         <button
-                          class="btn-main btn-line"
-                          style="border-radius: 5px; border: 1px solid white"
+                          class="btn-main"
+                          style="border-radius: 5px; border: 1px solid white;"
                         >
                           Ongoing Project
                         </button>
                       </a>
                       <a href="/upcoming-project.html">
                         <button
-                          class="btn-main btn-line"
-                          style="border-radius: 5px; border: 1px solid white"
+                          class="btn-main"
+                          style="border-radius: 5px; border: 1px solid white;"
                         >
                           Upcoming Project
                         </button>
@@ -565,7 +584,7 @@
                     >
                       <a href="/index.html#features">
                         <button
-                          class="open-popup-btn btn-main btn-line"
+                          class="open-popup-btn btn-main"
                           style="border-radius: 5px; border: 1px solid white"
                         >
                           Learn More
@@ -596,7 +615,7 @@
                       "
                     >
                       <button
-                        class="open-popup-btn btn-main btn-line"
+                        class="open-popup-btn btn-main "
                         style="border-radius: 5px; border: 1px solid white"
                       >
                         Learn More
@@ -796,7 +815,7 @@
               <div class="col-md-6">
                 <div class="relative">
                   <img
-                    src="img/home_img/Ongoing_1.jpg"
+                    src="img/ongoing/Ongoing_New.jpg"
                     class="img-fluid wow fadeInUp"
                     alt=""
                   />

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
@@ -29,7 +27,10 @@
       rel="stylesheet"
       type="text/css"
     />
-    <script src="https://kit.fontawesome.com/4c90fc44ba.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/4c90fc44ba.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
       .mv-para {
         padding: 0 2rem 1rem;
@@ -178,11 +179,140 @@
       .content_about.active_about {
         display: block;
       }
-      #learnMoreBtn{
+      #learnMoreBtn {
         background: #301a1a;
         color: #fff;
         border: none;
         outline: none;
+      }
+      .sticky_homepage img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        will-change: transform; /* This is newline */
+        object-fit: cover;
+        transform: translateX(0) scale(1.35);
+      }
+
+      .sticky_homepage {
+        background-color: #b4aea7;
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .slides {
+        position: relative;
+        width: 500%;
+        height: 100%;
+        display: flex;
+        will-change: transform;
+        transform: translateX(0);
+      }
+      .dark-overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+        pointer-events: none;
+      }
+      .slide {
+        position: relative;
+        flex: 1;
+        height: 100%;
+      }
+
+      .img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .title {
+        position: relative;
+        width: max-content;
+        top: 40.5%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 1.5em;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        z-index: 2;
+        /* text-align: center; */
+      }
+      .title p {
+        color: #fff;
+        width: 50vw;
+        margin: auto;
+        font-weight: 300;
+      }
+      .main_title {
+        top: 45%;
+        transform: translateX(-50%) translateY(-50%);
+        clip-path: none;
+      }
+      .main_title img {
+        width: 100%;
+      }
+      .slide_line::before {
+        content: "";
+        position: absolute;
+        height: 1px;
+        background-color: #fff;
+        width: 100%;
+        left: 0;
+        top: 50%;
+        z-index: 9;
+      }
+      .main_slide_line::before {
+        content: "";
+        position: absolute;
+        height: 1px;
+        background-color: #fff;
+        width: 30%;
+        right: 0;
+        top: 50%;
+        z-index: 9;
+      }
+
+      .title h3 {
+        color: #fff;
+        position: relative;
+        text-transform: uppercase;
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: -0.5px;
+        line-height: 0.9;
+        will-change: transform;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: clip;
+      }
+
+      .lenis.lenis-smooth iframe {
+        pointer-events: none;
+      }
+      @media (max-width: 649px) {
+        .title p {
+          width: 70vw;
+        }
+        .main_title img {
+          width: 60%;
+        }
       }
     </style>
   </head>
@@ -210,73 +340,61 @@
       </div>
       <!-- header begin -->
       <header class="transparent has-topbar">
-        <!-- <div id="topbar">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="d-flex justify-content-between xs-hide">
-                  <div class="header-widget d-flex">
-                    <div class="topbar-widget">
-                      <a href="#"
-                        ><i class="icofont-location-pin"></i>A 37, Block A,
-                        Industrial Area, Sector 62, Noida, Uttar Pradesh
-                        201301</a
-                      >
-                    </div>
-                    <div class="topbar-widget">
-                      <a href="#"><i class="icofont-phone"></i>7620203030</a>
-                    </div>
-                    <div class="topbar-widget">
-                      <a href="#"
-                        ><i class="icofont-envelope"></i>info@pincodeinfra.com</a
-                      >
-                    </div>
-                  </div>
-
-                  <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61573418790165"><i class="fa-brands fa-facebook fa-lg"></i></a>
-                    <a href="https://x.com/pincodeinfra"><i class="fa-brands fa-x-twitter fa-lg"></i></a>
-                    <a href="https://www.youtube.com/channel/UCQcojLZA80SOr_OPx2AniFQ"><i class="fa-brands fa-youtube fa-lg"></i></a>
-                    <a href="https://www.instagram.com/pincodeinfra"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                    <a href="https://www.linkedin.com/company/105912895/admin/dashboard/"><i class="fa-brands fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-        </div> -->
         <div class="container">
           <div class="row">
             <div class="col-md-12">
               <div class="de-flex sm-pt10">
                 <div class="de-flex-col">
                   <!-- logo begin -->
-                  
+
                   <!-- logo close -->
                 </div>
                 <div class="de-flex-col header-col-mid">
                   <ul id="mainmenu">
                     <li>
-                      <a style="font-size: 22px;" class="menu-item" href="index.html">Home</a>
+                      <a
+                        style="font-size: 22px"
+                        class="menu-item"
+                        href="index.html"
+                        >Home</a
+                      >
                     </li>
                     <li>
-                      <a style="font-size: 22px;" class="menu-item" href="/about.html">About</a>
+                      <a
+                        style="font-size: 22px"
+                        class="menu-item"
+                        href="/about.html"
+                        >About</a
+                      >
                     </li>
                     <li class="menu-item">
-                      <a style="font-size: 22px;" href="/upcoming-project.html">Projects</a>
+                      <a style="font-size: 22px" href="/upcoming-project.html"
+                        >Projects</a
+                      >
                       <ul>
                         <li>
-                          <a  href="/ongoing-project.html">Ongoing Project</a>
+                          <a href="/ongoing-project.html">Ongoing Project</a>
                         </li>
                         <li>
-                          <a  href="/upcoming-project.html">Upcoming Project</a>
+                          <a href="/upcoming-project.html">Upcoming Project</a>
                         </li>
                       </ul>
                     </li>
-                    <li><a style="font-size: 22px;" class="menu-item" href="#features">Features</a></li>
                     <li>
-                      <a style="font-size: 22px;" class="menu-item" href="#contact">Contact</a>
+                      <a
+                        style="font-size: 22px"
+                        class="menu-item"
+                        href="#features"
+                        >Features</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        style="font-size: 22px"
+                        class="menu-item"
+                        href="#contact"
+                        >Contact</a
+                      >
                     </li>
                   </ul>
                 </div>
@@ -298,18 +416,21 @@
       <div class="no-bottom no-top" id="content">
         <div id="top"></div>
 
-        <section class="jarallax pt100 bg-dark text-light relative">
+        <!-- <section class="jarallax pt100 bg-dark text-light relative">
           <div class="overlay op-7"></div>
           <img src="img/home_img/Main_Banner.jpg" class="jarallax-img" alt="" />
           <div class="container relative z-2">
             <div class="row g-3 justify-content-center">
               <div class="spacer-double xs-hide"></div>
 
-              <div id="logo" style="display: flex; justify-content: center;">
+              <div id="logo" style="display: flex; justify-content: center">
                 <a href="/">
-                  <img class="logo-main" src="img/LogoWhite.png" style="width: 40vw;" alt="" />
-                  <!-- <img class="logo-scroll" src="img/LogoWhite.png" alt="" /> -->
-                  <!-- <img class="logo-mobile" src="img/LogoWhite.png" alt="" /> -->
+                  <img
+                    class="logo-main"
+                    src="img/Asset 7.svg"
+                    style="width: 40vw"
+                    alt=""
+                  />
                 </a>
               </div>
             </div>
@@ -331,6 +452,167 @@
               </div>
             </div>
           </div>
+        </section> -->
+
+        <section class="sticky_homepage">
+          <div class="slider">
+            <div class="slides">
+              <div class="dark-overlay"></div>
+              <div class="slide main_slide_line">
+                <div class="img">
+                  <img src="/img/home_banner/SLIDE_1.jpg" alt="" />
+                </div>
+                <div class="title main_title">
+                  <img src="/img/Asset 7.svg" alt="" />
+                </div>
+              </div>
+              <div class="slide slide_line">
+                <div class="img">
+                  <img src="/img/home_banner/SLIDE_2.jpg" alt="" />
+                </div>
+                <div class="title">
+                  <h3>About us</h3>
+                  <p>
+                    PINCODE is an idea born from ambition, shaped by experience,
+                    and driven by vision. We are a new-age real estate
+                    development firm that believes in creating spaces that stand
+                    the test of time.
+                  </p>
+                  <div class="de-flex-col banner_btn">
+                    <div
+                      class="menu_side_area"
+                      style="
+                        margin-left: 0;
+                        margin-top: 15px;
+                        text-align: start;
+                      "
+                    >
+                      <a href="/about.html">
+                        <button
+                          class="open-popup-btn btn-main btn-line"
+                          style="border-radius: 5px; border: 1px solid white"
+                        >
+                          Learn More
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide slide_line">
+                <div class="img">
+                  <img src="/img/home_banner/SLIDE_3.jpg" alt="" />
+                </div>
+                <div class="title">
+                  <h3>Projects</h3>
+                  <p>
+                    We are tirelessly pushing the boundaries of innovation with
+                    commercial and residential spaces. This ensures that
+                    whatever we build holds firm in confidence in terms of
+                    quality and future readiness.
+                  </p>
+                  <div class="de-flex-col banner_btn">
+                    <div
+                      class="menu_side_area"
+                      style="
+                        margin-left: 0;
+                        margin-top: 15px;
+                        text-align: start;
+                        display: flex;
+                        justify-content: space-around;
+                      "
+                    >
+                      <a href="/ongoing-project.html">
+                        <button
+                          class="btn-main btn-line"
+                          style="border-radius: 5px; border: 1px solid white"
+                        >
+                          Ongoing Project
+                        </button>
+                      </a>
+                      <a href="/upcoming-project.html">
+                        <button
+                          class="btn-main btn-line"
+                          style="border-radius: 5px; border: 1px solid white"
+                        >
+                          Upcoming Project
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide slide_line">
+                <div class="img">
+                  <img src="/img/home_banner/SLIDE_4.jpg" alt="" />
+                </div>
+                <div class="title">
+                  <h3>Features</h3>
+                  <p>
+                    We take a million considerations before moving ahead with a
+                    project. It is an essential step to ensure that what we
+                    deliver holds paramount standards of comfort, utility, and
+                    convenience.
+                  </p>
+                  <div class="de-flex-col banner_btn">
+                    <div
+                      class="menu_side_area"
+                      style="
+                        margin-left: 0;
+                        margin-top: 15px;
+                        text-align: start;
+                      "
+                    >
+                      <a href="/index.html#features">
+                        <button
+                          class="open-popup-btn btn-main btn-line"
+                          style="border-radius: 5px; border: 1px solid white"
+                        >
+                          Learn More
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide slide_line">
+                <div class="img">
+                  <img src="/img/home_banner/SLIDE_5.jpg" alt="" />
+                </div>
+                <div class="title" style="text-align: center">
+                  <h3>Want to know more ?</h3>
+                  <!-- <p>Scroll Down</p> -->
+                  <div class="de-flex-col banner_btn">
+                    <div
+                      class="menu_side_area"
+                      style="
+                        margin-left: 0;
+                        margin-top: 15px;
+                        text-align: start;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                      "
+                    >
+                      <button
+                        class="open-popup-btn btn-main btn-line"
+                        style="border-radius: 5px; border: 1px solid white"
+                      >
+                        Learn More
+                      </button>
+                      <p style="width: 100%; text-align: center">Scroll Down</p>
+                      <img
+                        src="/img/Scroll_down.png"
+                        alt=""
+                        style="width: 50px"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="relative lines-deco">
@@ -340,13 +622,13 @@
                 <div class="relative wow fadeInUp" data-wow-delay=".3s">
                   <div class="abs top-0 w-100">
                     <div class="shape-mask-1 jarallax">
-                      <img src="img/home_img/About_us1.jpg" class="jarallax-img" alt="" />
+                      <img src="img/ant_n1.jpg" class="jarallax-img" alt="" />
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="col-lg-4 ">
+              <div class="col-lg-4">
                 <div class="wow scaleIn bg-white">
                   <div class="subtitle id-color mb-3">About</div>
                   <!-- <img src="/img/LogoBrown.png" alt=""/> -->
@@ -367,7 +649,7 @@
                 <div class="relative wow fadeInUp" data-wow-delay=".3s">
                   <div class="abs top-0 w-100">
                     <div class="shape-mask-1 jarallax">
-                      <img src="img/home_img/About_us_2.jpg" class="jarallax-img" alt="" />
+                      <img src="img/abt_n2.jpg" class="jarallax-img" alt="" />
                     </div>
                   </div>
                 </div>
@@ -384,7 +666,9 @@
               <button class="btn_about active_about" id="leaderBtn">
                 Our Leadership
               </button>
-              <button class="btn_about" id="missionBtn">Mission & Vision</button>
+              <button class="btn_about" id="missionBtn">
+                Mission & Vision
+              </button>
             </div>
             <div class="content_about active_about" id="leaderContent">
               <section class="relative lines-deco">
@@ -408,7 +692,14 @@
                       <div class="ms-lg-5 wow scaleIn bg-white z-index-top">
                         <h2 class="wow fadeInUp">Mr. Gurpreet Singh Wason</h2>
                         <p>
-                          Emphasizes his journey from managing factories to leading large-scale real estate projects. He highlights the importance of strong project management, cross-departmental synergy, proactive problem-solving, and humility in leadership. His strategic choice of NOIDA Sector 62 for Capitol Avenue is driven by its connectivity and thriving business ecosystem.
+                          Emphasizes his journey from managing factories to
+                          leading large-scale real estate projects. He
+                          highlights the importance of strong project
+                          management, cross-departmental synergy, proactive
+                          problem-solving, and humility in leadership. His
+                          strategic choice of NOIDA Sector 62 for Capitol Avenue
+                          is driven by its connectivity and thriving business
+                          ecosystem.
                         </p>
                       </div>
                     </div>
@@ -419,11 +710,15 @@
                   >
                     <div class="col-lg-5 relative z-2">
                       <div class="me-lg-5 wow scaleIn bg-white z-index-top">
-                        <h2 class="wow fadeInUp">
-                          Mr. Manpreet Singh Wason
-                        </h2>
+                        <h2 class="wow fadeInUp">Mr. Manpreet Singh Wason</h2>
                         <p>
-                          Focuses on streamlining collaborations and ensuring efficient project execution. He underlines the value of integrated teamwork, rapid yet quality-driven development, and a commitment to social responsibility and sustainable growth. He attributes Maasters’ (and now PINCODE’s) success to principles of transparency, quality, and ethical leadership.
+                          Focuses on streamlining collaborations and ensuring
+                          efficient project execution. He underlines the value
+                          of integrated teamwork, rapid yet quality-driven
+                          development, and a commitment to social responsibility
+                          and sustainable growth. He attributes Maasters’ (and
+                          now PINCODE’s) success to principles of transparency,
+                          quality, and ethical leadership.
                         </p>
                       </div>
                     </div>
@@ -451,7 +746,7 @@
                       <div class="relative" style="background-color: #fff">
                         <!-- <div class="subtitle id-color wow fadeInUp ">Our</div> -->
                         <h2 class="">Mission</h2>
-                        <p class="mv-para ">
+                        <p class="mv-para">
                           To develop intelligent, inspiring spaces that elevate
                           lives, empower businesses, and deliver enduring value.
                           Our mission is to create environments where innovation
@@ -469,7 +764,7 @@
                       <div class="relative" style="background-color: #fff">
                         <!-- <div class="subtitle id-color wow fadeInUp">Our</div> -->
                         <h2 class="">Vision</h2>
-                        <p class="mv-para ">
+                        <p class="mv-para">
                           Our vision is to become India’s most trusted name in
                           landmark developments by consistently delivering
                           exceptional projects that stand as symbols of
@@ -548,10 +843,10 @@
           class="jarallax relative overflow-hidden text-light section-dark pt60 pb60"
         >
           <div class="overlay op-5"></div>
-          <img src="img/home_img/Features_Banner.jpg" class="jarallax-img" alt="" />
+          <img src="img/Features_banner_1.jpg" class="jarallax-img" alt="" />
           <div class="container">
             <div class="row">
-              <div class="col-lg-8 offset-lg-2 ">
+              <div class="col-lg-8 offset-lg-2">
                 <div
                   class="subtitle id-color wow fadeInUp mb-3"
                   style="color: #fff"
@@ -582,7 +877,7 @@
                     <span class="me-4"> 2 Guests </span>
                     <span class="me-4"> 30 ft </span>
                   </div> -->
-                  <p class="pe-lg-5 ">
+                  <p class="pe-lg-5">
                     Situated in the heart of Noida’s thriving business district,
                     Capitol Avenue offers unrivaled accessibility to major
                     transportation hubs, corporate centers, and premium
@@ -619,7 +914,7 @@
                     <span class="me-4"> 2 Guests </span>
                     <span class="me-4"> 30 ft </span>
                   </div> -->
-                  <p class="pe-lg-5 ">
+                  <p class="pe-lg-5">
                     Capitol Avenue showcases a modern architectural design that
                     seamlessly blends functionality with aesthetic appeal. The
                     thoughtfully planned layout, cutting-edge infrastructure,
@@ -656,7 +951,7 @@
                     <span class="me-4"> 2 Guests </span>
                     <span class="me-4"> 30 ft </span>
                   </div> -->
-                  <p class="pe-lg-5 ">
+                  <p class="pe-lg-5">
                     Offering a comprehensive range of state-of-the-art
                     amenities, Capitol Avenue ensures a superior working and
                     shopping experience. Facilities include advanced security,
@@ -693,7 +988,7 @@
                     <span class="me-4"> 4 Guests </span>
                     <span class="me-4"> 60 ft </span>
                   </div> -->
-                  <p class="pe-lg-5 ">
+                  <p class="pe-lg-5">
                     Capitol Avenue establishes an integrated commercial
                     ecosystem by uniting office spaces, high-street retail
                     zones, and recreational areas. This holistic environment
@@ -748,7 +1043,7 @@
                         background-repeat: no-repeat;
                       "
                     >
-                      <h1 class="mb-4">Want to know more</h1>
+                      <h1 class="mb-4">Want to know more ?</h1>
                       <h3 class="mb-4">Leave a Message</h3>
                     </div>
                   </div>
@@ -880,35 +1175,40 @@
         <div class="container">
           <div class="row g-4 align-items-center">
             <div class="col-md-12">
-              <div
-                class="d-lg-flex align-items-center justify-content-between "
-              >
-              <div>
-                <img src="img/LogoWhite.png" class="w-250px" alt="" /><br />
-                <div class="social-icons mb-sm-30 mt-4">
-                  <a
-                    href="https://www.facebook.com/profile.php?id=61573418790165"
-                    ><i class="fa-brands fa-facebook fa-lg"></i
-                  ></a>
-                  <a href="https://x.com/pincodeinfra"
-                    ><i class="fa-brands fa-x-twitter fa-lg"></i
-                  ></a>
-                  <a
-                    href="https://www.youtube.com/channel/UCQcojLZA80SOr_OPx2AniFQ"
-                    ><i class="fa-brands fa-youtube fa-lg"></i
-                  ></a>
-                  <a href="https://www.instagram.com/pincodeinfra"
-                    ><i class="fa-brands fa-instagram fa-lg"></i
-                  ></a>
-                  <a
-                    href="https://www.linkedin.com/company/105912895/admin/dashboard/"
-                    ><i class="fa-brands fa-linkedin"></i
-                  ></a>
+              <div class="d-lg-flex align-items-center justify-content-between">
+                <div>
+                  <img src="img/LogoWhite.png" class="w-250px" alt="" /><br />
+                  <div class="social-icons mb-sm-30 mt-4">
+                    <a
+                      href="https://www.facebook.com/profile.php?id=61573418790165"
+                      ><i class="fa-brands fa-facebook fa-lg"></i
+                    ></a>
+                    <a href="https://x.com/pincodeinfra"
+                      ><i class="fa-brands fa-x-twitter fa-lg"></i
+                    ></a>
+                    <a
+                      href="https://www.youtube.com/channel/UCQcojLZA80SOr_OPx2AniFQ"
+                      ><i class="fa-brands fa-youtube fa-lg"></i
+                    ></a>
+                    <a href="https://www.instagram.com/pincodeinfra"
+                      ><i class="fa-brands fa-instagram fa-lg"></i
+                    ></a>
+                    <a
+                      href="https://www.linkedin.com/company/105912895/admin/dashboard/"
+                      ><i class="fa-brands fa-linkedin"></i
+                    ></a>
+                  </div>
                 </div>
-              </div>
                 <div>
                   <h3 class="ml-4">Navigation</h3>
-                  <ul style="display: flex; flex-direction: column; justify-content: center; padding-left: 0;">
+                  <ul
+                    style="
+                      display: flex;
+                      flex-direction: column;
+                      justify-content: center;
+                      padding-left: 0;
+                    "
+                  >
                     <a href="/index.html">Home</a>
                     <a href="/about.html">About</a>
                     <a href="/upcoming-project.html">Upcoming Project</a>
@@ -923,8 +1223,11 @@
                     Noida, Uttar Pradesh 201301
                   </div>
                   <h3 class="mt-4">Contact Info</h3>
-                  <div style="display: flex; flex-direction: column; ">
-                    <small><i class="fa-solid fa-envelope"></i> info@pincodeinfra.com</small>
+                  <div style="display: flex; flex-direction: column">
+                    <small
+                      ><i class="fa-solid fa-envelope"></i>
+                      info@pincodeinfra.com</small
+                    >
                     <small><i class="fa-solid fa-phone"></i> 7620203030</small>
                   </div>
                 </div>
@@ -935,7 +1238,7 @@
         <div class="subfooter">
           <div class="container">
             <div class="row">
-              <div class="col-md-12 ">
+              <div class="col-md-12">
                 © 2025 Pincode Infra. All Rights Reserved.
               </div>
             </div>
@@ -947,6 +1250,20 @@
 
     <!-- Javascript Files
     ================================================== -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"
+      integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"
+      integrity="sha512-AcqPGqrrAEtEwe+ADO5R8RbdFi7tuU7b/A2cJJH0Im0D18NRk5p5s4B3E5PMuO81KFw0ClN7J5SHVUJz7KOb0A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
+    <script src="/js/script.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Check if the URL contains a hash (e.g., #vision)

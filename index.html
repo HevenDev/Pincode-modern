@@ -261,7 +261,7 @@
       .main_title img {
         width: 100%;
       }
-      .slide_line::before {
+      /* .slide_line::before {
         content: "";
         position: absolute;
         height: 1px;
@@ -270,8 +270,8 @@
         left: 0;
         top: 50%;
         z-index: 9;
-      }
-      .main_slide_line::before {
+      } */
+      /* .main_slide_line::before {
         content: "";
         position: absolute;
         height: 1px;
@@ -280,7 +280,7 @@
         right: 0;
         top: 50%;
         z-index: 9;
-      }
+      } */
 
       .title h3 {
         color: #fff;
@@ -358,37 +358,67 @@
       </div>
       <!-- header begin -->
       <header class="transparent has-topbar">
+        <!-- <div id="topbar">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="d-flex justify-content-between xs-hide">
+                  <div class="header-widget d-flex">
+                    <div class="topbar-widget">
+                      <a href="#"
+                        ><i class="icofont-location-pin"></i>A 37, Block A,
+                        Industrial Area, Sector 62, Noida, Uttar Pradesh
+                        201301</a
+                      >
+                    </div>
+                    <div class="topbar-widget">
+                      <a href="#"><i class="icofont-phone"></i>7620203030</a>
+                    </div>
+                    <div class="topbar-widget">
+                      <a href="#"
+                        ><i class="icofont-envelope"></i>info@pincodeinfra.com</a
+                      >
+                    </div>
+                  </div>
+
+                  <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61573418790165"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                    <a href="https://x.com/pincodeinfra"><i class="fa-brands fa-x-twitter fa-lg"></i></a>
+                    <a href="https://www.youtube.com/channel/UCQcojLZA80SOr_OPx2AniFQ"><i class="fa-brands fa-youtube fa-lg"></i></a>
+                    <a href="https://www.instagram.com/pincodeinfra"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                    <a href="https://www.linkedin.com/company/105912895/admin/dashboard/"><i class="fa-brands fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div> -->
         <div class="container">
           <div class="row">
             <div class="col-md-12">
               <div class="de-flex sm-pt10">
                 <div class="de-flex-col">
                   <!-- logo begin -->
-
+                  <div id="logo">
+                    <a href="/">
+                      <img class="logo-main" src="img/LogoWhite.png" alt="" />
+                      <img class="logo-scroll" src="img/LogoWhite.png" alt="" />
+                      <img class="logo-mobile" src="img/LogoWhite.png" alt="" />
+                    </a>
+                  </div>
                   <!-- logo close -->
                 </div>
                 <div class="de-flex-col header-col-mid">
                   <ul id="mainmenu">
                     <li>
-                      <a
-                        style="font-size: 22px"
-                        class="menu-item"
-                        href="index.html"
-                        >Home</a
-                      >
+                      <a class="menu-item" href="index.html">Home</a>
                     </li>
                     <li>
-                      <a
-                        style="font-size: 22px"
-                        class="menu-item"
-                        href="/about.html"
-                        >About</a
-                      >
+                      <a class="menu-item" href="/about.html">About</a>
                     </li>
                     <li class="menu-item">
-                      <a style="font-size: 22px" href="/upcoming-project.html"
-                        >Projects</a
-                      >
+                      <a href="/upcoming-project.html">Projects</a>
                       <ul>
                         <li>
                           <a href="/ongoing-project.html">Ongoing Project</a>
@@ -398,21 +428,9 @@
                         </li>
                       </ul>
                     </li>
+                    <li><a class="menu-item" href="#features">Features</a></li>
                     <li>
-                      <a
-                        style="font-size: 22px"
-                        class="menu-item"
-                        href="#features"
-                        >Features</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        style="font-size: 22px"
-                        class="menu-item"
-                        href="#contact"
-                        >Contact</a
-                      >
+                      <a class="menu-item" href="#contact">Contact</a>
                     </li>
                   </ul>
                 </div>
@@ -481,7 +499,16 @@
                   <img src="/img/home_banner/SLIDE_1.jpg" alt="" />
                 </div>
                 <div class="title main_title">
-                  <img src="/img/Asset 7.svg" alt="" />
+                  <svg id="logo_svg" width="510" height="132" viewBox="0 0 510 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M472.182 31.376C482.889 31.376 491.644 34.9253 497.716 40.9805C503.787 47.0353 507.334 55.7524 507.334 66.3838C507.334 67.6739 507.27 68.906 507.186 70.1436H450.33L450.776 72.5147C451.788 77.8837 454.27 82.2531 457.999 85.2725C461.723 88.2882 466.545 89.8399 472.038 89.8399C479.375 89.8398 485.403 87.1702 489.325 82.0645H504.296C499.22 94.1718 487.739 101.68 472.182 101.68C461.479 101.68 452.688 98.0978 446.578 91.9873C440.468 85.8769 436.886 77.086 436.886 66.3838C436.886 55.7579 440.465 47.0414 446.572 40.9844C452.681 34.9259 461.474 31.376 472.182 31.376ZM472.038 43.2159C462.839 43.2159 455.575 47.6402 452.199 55.5166L451.005 58.3037H493.215L492.02 55.5166C488.642 47.6329 481.372 43.216 472.038 43.2159Z" stroke="white" stroke-width="4"/>
+                    <path d="M424.016 3.58398V66.5283C424.016 77.6176 420.07 86.3233 413.723 92.2656C407.359 98.2246 398.439 101.536 388.288 101.536C377.882 101.536 369.233 97.9952 363.19 91.9355C357.148 85.8762 353.568 77.1548 353.568 66.5283C353.568 55.8247 357.152 47.0212 363.1 40.9043C369.046 34.79 377.478 31.2324 387.425 31.2324C397.371 31.2325 404.184 34.827 407.155 38.6641L410.736 43.29V3.58398H424.016ZM388.72 43.0723C382.29 43.0723 376.764 45.214 372.852 49.3281C368.95 53.4328 366.848 59.2955 366.848 66.3838C366.848 73.4724 368.95 79.3357 372.852 83.4404C376.764 87.5545 382.29 89.6963 388.72 89.6963C395.216 89.6962 400.778 87.5579 404.71 83.4434C408.634 79.3375 410.736 73.4724 410.736 66.3838C410.736 59.2952 408.634 53.4301 404.71 49.3242C400.778 45.2098 395.216 43.0723 388.72 43.0723Z" stroke="white" stroke-width="4"/>
+                    <path d="M305.547 31.376C316.254 31.376 325.009 34.9253 331.081 40.9805C337.152 47.0353 340.699 55.7524 340.699 66.3838C340.699 77.0914 337.149 85.8829 331.075 91.9912C325.001 98.0984 316.248 101.68 305.547 101.68C294.844 101.68 286.053 98.0978 279.943 91.9873C273.833 85.8769 270.251 77.086 270.251 66.3838C270.251 55.7579 273.83 47.0414 279.937 40.9844C286.046 34.9259 294.839 31.376 305.547 31.376ZM305.403 43.2159C298.972 43.2159 293.446 45.3576 289.535 49.4717C285.632 53.5764 283.531 59.4398 283.531 66.5284C283.531 73.6167 285.633 79.4794 289.535 83.584C293.446 87.6981 298.972 89.8399 305.403 89.8399C311.899 89.8398 317.46 87.7023 321.392 83.5879C325.316 79.4821 327.419 73.6169 327.419 66.5284C327.419 59.4397 325.316 53.5737 321.392 49.4678C317.46 45.3535 311.899 43.2159 305.403 43.2159Z" stroke="white" stroke-width="4"/>
+                    <path d="M225.46 31.376C242.373 31.376 254.612 40.2844 258.86 54.3037H244.732C241.148 47.1819 234.16 43.216 225.316 43.2159C218.886 43.2159 213.36 45.3576 209.448 49.4717C205.546 53.5764 203.444 59.4398 203.444 66.5284C203.444 73.6167 205.546 79.4794 209.448 83.584C213.36 87.6981 218.886 89.8399 225.316 89.8399C234.335 89.8398 241.329 85.7102 244.897 78.3203H258.998C254.646 92.6492 242.498 101.68 225.46 101.68C214.758 101.68 205.967 98.0978 199.857 91.9873C193.746 85.8769 190.164 77.086 190.164 66.3838C190.164 55.7578 193.743 47.0414 199.851 40.9844C205.96 34.9259 214.752 31.376 225.46 31.376Z" stroke="white" stroke-width="4"/>
+                    <path d="M145.752 31.088C157.078 31.088 164.804 35.3205 169.721 40.9034C174.686 46.5421 176.872 53.6586 176.872 59.4718V100.384H163.592V59.9044C163.592 54.2564 161.498 49.9626 158.084 47.1173C154.722 44.3163 150.27 43.0724 145.752 43.0724C141.234 43.0724 136.781 44.3164 133.42 47.1173C130.005 49.9626 127.912 54.2564 127.912 59.9044V100.384H114.632V59.4718C114.632 53.6586 116.818 46.5421 121.783 40.9034C126.7 35.3205 134.425 31.088 145.752 31.088Z" stroke="white" stroke-width="4"/>
+                    <path d="M99.8593 32.3838V100.384H86.58V32.3838H99.8593ZM93.2197 2C97.4234 2 100.724 5.40472 100.724 9.50391C100.724 13.8911 97.4234 17.1523 93.2197 17.1523C89.016 17.1523 85.7158 13.8911 85.7158 9.50391C85.7158 5.40475 89.016 2.00005 93.2197 2Z" stroke="white" stroke-width="4"/>
+                    <path d="M37.584 31.232C48.0657 31.232 56.7502 34.7752 62.8096 40.8345C68.8683 46.8933 72.4482 55.6134 72.4482 66.2398C72.4482 76.9433 68.865 85.7457 62.9004 91.8619C56.9381 97.9758 48.4705 101.536 38.4482 101.536C28.5133 101.536 21.8378 97.9485 18.8613 94.1041L15.2803 89.4781V129.184H2V66.2398C2.00004 55.15 5.94724 46.4434 12.2773 40.5005C18.6249 34.5413 27.5081 31.232 37.584 31.232ZM37.1523 43.0718C30.7218 43.0718 25.1956 45.2136 21.2842 49.3277C17.3817 53.4324 15.2803 59.2958 15.2803 66.3843C15.2803 73.4727 17.3819 79.3354 21.2842 83.44C25.1956 87.5541 30.7218 89.6959 37.1523 89.6959C43.6481 89.6958 49.2095 87.5583 53.1416 83.4439C57.0654 79.3381 59.1679 73.4728 59.168 66.3843C59.168 59.2957 57.0655 53.4297 53.1416 49.3238C49.2095 45.2095 43.648 43.0719 37.1523 43.0718Z" stroke="white" stroke-width="4"/>
+                    </svg>
+                    
                 </div>
               </div>
               <div class="slide slide_line">

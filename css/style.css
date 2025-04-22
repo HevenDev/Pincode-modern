@@ -21318,7 +21318,7 @@ border-radius:20px 0 0 20px;
 
 
 #logo_svg{
-  width: 80vw;
+  width: 70vw;
   height: auto;
   position: absolute;
   top: 50%;
@@ -21337,7 +21337,7 @@ border-radius:20px 0 0 20px;
 }
 #logo_svg path:nth-child(2){
   stroke-dasharray: 446px;
-  stroke-dashoffset: 446px;
+  stroke-dashoffset: 447px;
   animation: logo-anime 2s ease forwards 2s;
 }
 #logo_svg path:nth-child(3){
@@ -21357,7 +21357,7 @@ border-radius:20px 0 0 20px;
 }
 #logo_svg path:nth-child(6){
   stroke-dasharray: 274px;
-  stroke-dashoffset: 274px;
+  stroke-dashoffset: 275px;
   animation: logo-anime 2s ease forwards 0.4s;
 }
 #logo_svg path:nth-child(7){

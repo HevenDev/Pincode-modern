@@ -21181,13 +21181,7 @@ border-radius:20px 0 0 20px;
   .wow .subtitle{
     font-size: 21px;
   }
-  .bg-white{
-    background-color: #fff;
-  }
-  .z-index-top{
-    position: relative;
-    z-index: 999;
-  }
+  
   .text-center{
     text-align: center;
   }
@@ -21326,10 +21320,7 @@ border-radius:20px 0 0 20px;
   transform: translateX(-50%) translateY(-50%);
   animation: fill 0.5s ease forwards 4.4s;
 }
-#logo_svg path{
-  /* stroke-width: 3; */
-  animation: logo-stroke 0.5s ease forwards 4.4s;
-}
+
 #logo_svg path:nth-child(1){
   stroke-dasharray: 425px;
   stroke-dashoffset: 425px;
@@ -21371,14 +21362,6 @@ border-radius:20px 0 0 20px;
     stroke-dashoffset: 0;
   }
 }
-@keyframes logo-stroke {
-  from{
-    stroke-width: 3;
-  }
-  to{
-    stroke-width: 0;
-  }
-}
 
 @keyframes fill {
   from{
@@ -21387,4 +21370,12 @@ border-radius:20px 0 0 20px;
   to{
     fill: #fff;
   }
+}
+
+.bg-white{
+  background-color: #fff;
+}
+.z-index-top{
+  position: relative;
+  z-index: 9;
 }

@@ -21318,10 +21318,10 @@ border-radius:20px 0 0 20px;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  animation: fill 0.5s ease forwards 4.4s;
+  /* animation: fill 0.5s ease forwards 4.4s; */
 }
 
-#logo_svg path:nth-child(1){
+/* #logo_svg path:nth-child(1){
   stroke-dasharray: 425px;
   stroke-dashoffset: 425px;
   animation: logo-anime 2s ease forwards 2.4s;
@@ -21355,7 +21355,7 @@ border-radius:20px 0 0 20px;
   stroke-dasharray: 446px;
   stroke-dashoffset: 446px;
   animation: logo-anime 2s ease forwards ;
-}
+} */
 
 @keyframes logo-anime {
   to{
